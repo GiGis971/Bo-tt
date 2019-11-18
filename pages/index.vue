@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
     <div>
       <HeaderComponent />
       <h1 class="title">
