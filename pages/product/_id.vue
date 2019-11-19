@@ -14,9 +14,14 @@
           <p class="text-secondary">{{ product.excerpt }}</p>
           <div class="CTA d-flex">
             <div class="quantity mr-3">
-              <QuantitySelector :default="1" />
+              <QuantitySelector :default="1" v-model="selected.quantity" />
             </div>
-            <button class="btn btn-warning text-white">ADD TO CART</button>
+            <button
+              @click="addToCart(product)"
+              class="btn btn-warning text-white"
+            >
+              ADD TO CART
+            </button>
           </div>
         </div>
         <div class="col">
@@ -40,13 +45,25 @@ export default {
     return {
       product: {},
       image_base: 'https://loremflickr.com/',
-      image_cache_lock: ''
+      image_cache_lock: '?lock=30976',
+      selected: {
+        quantity: null
+      }
     }
   },
   mounted() {
     const products = require('~/api/products.json')
     const productId = this.$route.params.id
     this.product = products.find((p) => parseFloat(productId) === p.id)
+  },
+  methods: {
+    addToCart(product) {
+      if (this.selected.quantity <= 0) return false
+      this.$eventBus.$emit('CartNewItem', {
+        product,
+        quantity: this.selected.quantity
+      })
+    }
   }
 }
 </script>

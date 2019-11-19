@@ -1,8 +1,8 @@
 <template>
   <div class="d-flex flex-wrap">
-    <button>-</button>
+    <button @click="handleDecrement">-</button>
     <div>{{ quantity }}</div>
-    <button>+</button>
+    <button @click="handleIncrement">+</button>
   </div>
 </template>
 
@@ -17,7 +17,21 @@ export default {
   },
   data() {
     return {
-      quantity: 1
+      quantity: null
+    }
+  },
+  mounted() {
+    this.quantity = this.default
+    this.$emit('input', this.quantity)
+  },
+  methods: {
+    handleDecrement() {
+      this.quantity = this.quantity === 1 ? this.quantity : this.quantity - 1
+      this.$emit('input', this.quantity)
+    },
+    handleIncrement() {
+      this.quantity++
+      this.$emit('input', this.quantity)
     }
   }
 }

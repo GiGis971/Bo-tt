@@ -33,7 +33,7 @@ export default {
   data() {
     return {
       image_base: 'https://loremflickr.com/',
-      image_cache_lock: ''
+      image_cache_lock: '?lock=30976'
     }
   }
 }
