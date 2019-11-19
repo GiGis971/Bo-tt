@@ -1,5 +1,5 @@
 <template>
-  <header class="px-5 w-100 d-flex border-bottom py-3">
+  <header class="px-5 w-100 d-flex border-bottom py-3 sticky-top bg-white">
     <div>
       <nuxt-link to="/"><LogoComponent /></nuxt-link>
     </div>

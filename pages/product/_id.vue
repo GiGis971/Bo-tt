@@ -2,7 +2,7 @@
   <div>
     <div class="container">
       <div class="row">
-        <div class="col">
+        <div class="col order-1 order-md-0 mb-5">
           <h1 class="font-weight-bold pb-1">{{ product.name }}</h1>
           <span class="price h2 text-warning mb-2 d-block font-weight-bold">
             EUR {{ product.amount }}
@@ -24,7 +24,7 @@
             </button>
           </div>
         </div>
-        <div class="col">
+        <div class="col order-0 order-md-1 mb-5">
           <img
             :src="`${image_base}/440/830${product.image}/${image_cache_lock}`"
             :alt="product.name"
