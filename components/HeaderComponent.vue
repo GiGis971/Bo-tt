@@ -20,9 +20,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.color-gray {
-  color: #acacac;
-}
-</style>

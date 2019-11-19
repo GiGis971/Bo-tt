@@ -1,8 +1,19 @@
 <template>
   <div>
+    <HeaderComponent class="mb-5" />
     <nuxt />
   </div>
 </template>
+
+<script>
+import HeaderComponent from '~/components/HeaderComponent.vue'
+
+export default {
+  components: {
+    HeaderComponent
+  }
+}
+</script>
 
 <style>
 html {
